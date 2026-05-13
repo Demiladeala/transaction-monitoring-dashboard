@@ -36,7 +36,7 @@ export default function RootLayout({
             classNames: {
               // error: "bg-[#FF363614] text-[#FF3636]",
               // warning: "bg-[#F59E0B14] text-[#F59E0B]",
-              success: "!bg-white !border-brandborder !text-black",
+              success: "!bg-white !border !border-brandborder !text-black",
             },
           }}
         />
