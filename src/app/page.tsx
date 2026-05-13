@@ -1,5 +1,5 @@
-import { Login } from "./(auth)/login/components/login";
+import Login from "./(auth)/login/components/login";
 
-export default function Home() {
+export default function LoginPage() {
   return <Login />;
 }

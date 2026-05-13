@@ -4,6 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --primary-bg: #004396;
+  --primaryBlack: #262526;
   --primary-color: #004396;
   --primary-foreground: #ffffff;
   --accent: #d3e8ff;
@@ -13,6 +14,7 @@
   --neutral500: #868a90;
   --primary-500: #0e4ba3;
   --stroke: #e5e2e1;
+  --stroke2: #F4F0EF;
   --error: #db3a33;
   --panelSurface: #FDF8F8;
 }
@@ -25,7 +27,7 @@
 
 .dark {
   /* Change these dark-mode values later if you want a different palette. */
-  --primary-bg: #4f89ff;
+  /* --primary-bg: #4f89ff;
   --primary-color: #4f89ff;
   --accent: #3a4f69;
   --white: #f3f5f7;
@@ -33,12 +35,13 @@
   --primary-500: #7fb1ff;
   --stroke: #38404a;
   --error: #ff7f79;
-  --panelSurface: #262526;
+  --panelSurface: #262526; */
 }
 
 .bg-primary {
   background-color: var(--primary-bg);
 }
+
 
 .bg-primary-500 {
   background-color: var(--primary-500);
@@ -56,8 +59,16 @@
   background: linear-gradient(135deg, var(--primary-bg), var(--primary-500));
 }
 
+.bg-error {
+  background-color: var(--error);
+}
+
 .text-primary {
   color: var(--primary-color);
+}
+
+.text-primaryBlack {
+  color: var(--primaryBlack);
 }
 
 .text-accent {
@@ -90,6 +101,10 @@
 
 .border-stroke {
   border-color: var(--stroke);
+}
+
+.border-stroke2 {
+  border-color: var(--stroke2);
 }
 
 .stroke-token {

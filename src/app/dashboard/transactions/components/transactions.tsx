@@ -1,6 +1,6 @@
 import { DashboardHeader } from "@/src/components/layout/dashboard-header";
 
-export function Transactions() {
+export default function Transactions() {
   return (
     <main className="mx-auto w-full bg-white p-4 sm:p-6 md:p-8">
       <DashboardHeader variant="transactions" />

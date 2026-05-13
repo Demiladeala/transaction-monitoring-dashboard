@@ -20,7 +20,9 @@ const loginSchema = z.object({
 
 type LoginFormData = z.infer<typeof loginSchema>;
 
-export function Login() {
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export default function Login() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const emailId = useId();
@@ -37,9 +39,11 @@ export function Login() {
 
   const onSubmit = async (data: LoginFormData) => {
     try {
+      // Simulate backend round-trip so loading state is visible in demo.
+      await wait(1200);
       login(data.email, data.password);
       toast.success("Login successful!");
-      router.push("/dashboard");
+      router.push("/dashboard/home");
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Login failed");
     }
@@ -59,7 +63,7 @@ export function Login() {
             priority
             width={800}
             height={878}
-            className="w-full h-219.5 "
+            className="w-auto h-219.5 "
           />
         </div>
 
@@ -69,8 +73,8 @@ export function Login() {
             All-in-One Access <br /> Control
           </h2>
           <p className="text-accent text-lg leading-relaxed">
-            Manage your entire shop - jobs, customers, inventory, and finances -
-            in one simple dashboard
+            Monitor and manage all your transactions in one place with our
+            comprehensive dashboard.
           </p>
         </div>
 
@@ -130,7 +134,7 @@ export function Login() {
                 <Input
                   id={passwordId}
                   type={showPassword ? "text" : "password"}
-                  placeholder="••••••••••••"
+                  placeholder="Enter password"
                   error={!!errors.password}
                   {...register("password")}
                   className="w-full pr-10"
@@ -140,7 +144,7 @@ export function Login() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-neutral50"
                 >
-                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
                 </button>
               </div>
               <p className="text-error text-xs h-px mt-1">

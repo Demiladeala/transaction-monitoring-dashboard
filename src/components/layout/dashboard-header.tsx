@@ -31,36 +31,36 @@ export function DashboardHeader({
   const { title, Icon } = headerConfig[variant];
 
   return (
-    <header className="mb-6 flex items-center justify-between border-b border-slate-200 border-4">
-      <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-primary">
-          <Icon className="h-5 w-5" />
+    <header className="w-full bg-white border-b border-stroke2 mb-4">
+      <header className="flex items-center justify-between py-2 px-4">
+        <div className="flex items-center gap-3">
+          <Icon className="h-5 w-5" strokeWidth={1} />
+          <h1 className="text-base font-normal text-[#262526]">{title}</h1>
         </div>
-        <h1 className="text-2xl font-semibold text-slate-900">{title}</h1>
-      </div>
 
-      <div className="flex items-center gap-3">
-        <ThemeToggle />
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
 
-        <div className="flex items-center gap-3 rounded-xl bg-primary px-3 py-2 text-white">
-          <button
-            type="button"
-            aria-label="Notifications"
-            className="relative flex h-9 w-9 items-center justify-center rounded-full bg-white/15 transition-colors hover:bg-white/25"
-          >
-            <Bell className="h-4 w-4" />
-            {notificationCount > 0 ? (
-              <span className="absolute -right-1 -top-1 rounded-full bg-red-600 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
-                {notificationCount > 99 ? "99+" : notificationCount}
-              </span>
-            ) : null}
-          </button>
+          <div className="flex items-center gap-3 ">
+            <button
+              type="button"
+              aria-label="Notifications"
+              className="relative flex h-8 w-8 items-center justify-center rounded-full bg-accent"
+            >
+              <Bell size={20} />
+              {notificationCount > 0 ? (
+                <span className="absolute right-1 top-1 rounded-full flex items-center justify-center bg-error w-3.5 h-3.5 text-[10px] font-semibold leading-none text-white">
+                  {notificationCount > 99 ? "99+" : notificationCount}
+                </span>
+              ) : null}
+            </button>
 
-          <div className="flex h-9 min-w-9 items-center justify-center rounded-full bg-primary-500 px-3 text-sm font-semibold uppercase text-white">
-            {initials}
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-500 px-3 text-sm font-semibold uppercase text-white">
+              {initials}
+            </div>
           </div>
         </div>
-      </div>
+      </header>
     </header>
   );
 }
