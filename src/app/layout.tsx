@@ -4,7 +4,7 @@ import "./globals.css";
 
 import { Toaster } from "sonner";
 import { ThemeProvider } from "@/src/features/theme/theme-provider";
-import { ThemeToggle } from "@/src/components/ui/theme-toggle";
+// import { ThemeToggle } from "@/src/components/ui/theme-toggle";
 import { ThemeScript } from "@/src/features/theme/theme-script";
 
 const geistSans = Geist({
@@ -30,12 +30,7 @@ export default function RootLayout({
         <ThemeScript />
       </head>
       <body className="min-h-full flex flex-col">
-        <ThemeProvider>
-          <div className="p-4 flex justify-end">
-            <ThemeToggle />
-          </div>
-          {children}
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
         <Toaster
           richColors
           toastOptions={{
