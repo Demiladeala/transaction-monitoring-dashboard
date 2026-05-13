@@ -37,6 +37,7 @@ export default function Login() {
   const onSubmit = async (data: LoginFormData) => {
     try {
       login(data.email, data.password);
+      toast.success("Login successful!");
       router.push("/dashboard");
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Login failed");

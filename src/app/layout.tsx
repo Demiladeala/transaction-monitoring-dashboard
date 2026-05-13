@@ -1,16 +1,8 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-import "./globals.css";
-
 import { Toaster } from "sonner";
 import { ThemeProvider } from "@/src/features/theme/theme-provider";
-// import { ThemeToggle } from "@/src/components/ui/theme-toggle";
 import { ThemeScript } from "@/src/features/theme/theme-script";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Transaction Monitoring Dashboard",
@@ -25,11 +17,18 @@ export default function RootLayout({
 }) {
   // Early theme sync now handled by <ThemeScript />
   return (
-    <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
+    <html lang="en" className={`h-full antialiased`}>
       <head>
+        <link
+          rel="preconnect"
+          href="https://fonts.cdnfonts.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="//fonts.cdnfonts.com" />
+        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/br-firma" />
         <ThemeScript />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body>
         <ThemeProvider>{children}</ThemeProvider>
         <Toaster
           richColors
