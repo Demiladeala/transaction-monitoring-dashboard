@@ -32,7 +32,7 @@ function DrawerSection({
 }) {
   return (
     <section className="rounded-2xl border border-stroke2 bg-panelSurface p-4">
-      <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-900">
+      <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-[#C9C6C5]">
         <Icon className="h-4 w-4 text-primary" />
         {title}
       </div>
@@ -44,10 +44,12 @@ function DrawerSection({
 function DetailField({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-xl border border-stroke2 bg-panelSurface p-3">
-      <div className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-400">
+      <div className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-400 dark:text-[#939090]">
         {label}
       </div>
-      <div className="mt-1 text-sm font-medium text-slate-900">{value}</div>
+      <div className="mt-1 text-sm font-medium text-slate-900 dark:text-[#C9C6C5]">
+        {value}
+      </div>
     </div>
   );
 }
@@ -67,13 +69,13 @@ export function TransactionDrawer({
         onClick={onClose}
       />
 
-      <aside className="relative z-10 flex h-full w-full max-w-xl flex-col overflow-y-auto rounded-l-2xl bg-white shadow-2xl">
+      <aside className="relative z-10 flex h-full w-full max-w-xl flex-col overflow-y-auto rounded-l-2xl bg-panelSurface shadow-2xl">
         <div className="sticky top-0 z-20 flex items-center justify-between border-b border-stroke2 bg-panelSurface px-5 py-4">
           <div>
-            <p className="text-sm font-medium text-slate-500">
+            <p className="text-sm font-medium text-slate-500 dark:text-[#939090]">
               Transaction details
             </p>
-            <h2 className="text-lg font-semibold text-slate-900">
+            <h2 className="text-lg font-semibold text-slate-900 dark:text-[#C9C6C5]">
               {transaction.customerName}
             </h2>
           </div>
@@ -81,18 +83,20 @@ export function TransactionDrawer({
             type="button"
             aria-label="Close transaction details"
             onClick={onClose}
-            className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-white hover:text-slate-900"
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-white hover:text-slate-900 dark:text-[#939090] dark:hover:bg-[#2C2B2B] dark:hover:text-[#C9C6C5]"
           >
             <X className="h-4 w-4" />
           </button>
         </div>
 
         <div className="space-y-4 p-5">
-          <section className="rounded-2xl border border-stroke2 bg-white p-4 shadow-sm">
+          <section className="rounded-2xl border border-stroke2 bg-panelSurface p-4 shadow-sm">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="text-sm text-slate-500">Amount</p>
-                <div className="text-2xl font-semibold text-slate-900">
+                <p className="text-sm text-slate-500 dark:text-[#939090]">
+                  Amount
+                </p>
+                <div className="text-2xl font-semibold text-slate-900 dark:text-[#C9C6C5]">
                   {currencyFormatter.format(transaction.amount)}
                 </div>
               </div>
@@ -133,18 +137,18 @@ export function TransactionDrawer({
               {transaction.history.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-xl border border-stroke2 bg-white p-3"
+                  className="rounded-xl border border-stroke2 bg-panelSurface p-3"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <div className="font-medium text-slate-900">
+                      <div className="font-medium text-slate-900 dark:text-[#C9C6C5]">
                         {item.label}
                       </div>
-                      <div className="text-sm text-slate-500">
+                      <div className="text-sm text-slate-500 dark:text-[#939090]">
                         {item.detail}
                       </div>
                     </div>
-                    <div className="text-xs font-medium text-slate-400">
+                    <div className="text-xs font-medium text-slate-400 dark:text-[#939090]">
                       {item.time}
                     </div>
                   </div>
@@ -186,15 +190,15 @@ export function TransactionDrawer({
                   </div>
                   <div className="flex-1 pb-3">
                     <div className="flex items-center justify-between gap-4">
-                      <div className="font-medium text-slate-900">
+                      <div className="font-medium text-slate-900 dark:text-[#C9C6C5]">
                         {item.title}
                       </div>
-                      <div className="flex items-center gap-1 text-xs text-slate-400">
+                      <div className="flex items-center gap-1 text-xs text-slate-400 dark:text-[#939090]">
                         <Clock3 className="h-3.5 w-3.5" />
                         {item.time}
                       </div>
                     </div>
-                    <div className="mt-1 text-sm text-slate-500">
+                    <div className="mt-1 text-sm text-slate-500 dark:text-[#939090]">
                       {item.detail}
                     </div>
                   </div>
@@ -203,8 +207,8 @@ export function TransactionDrawer({
             </div>
           </DrawerSection>
 
-          <section className="rounded-2xl border border-stroke2 bg-panelSurface p-4 text-sm text-slate-500">
-            <div className="flex items-center gap-2 font-medium text-slate-700">
+          <section className="rounded-2xl border border-stroke2 bg-panelSurface p-4 text-sm text-slate-500 dark:text-[#939090]">
+            <div className="flex items-center gap-2 font-medium text-slate-700 dark:text-[#C9C6C5]">
               <Wallet className="h-4 w-4 text-primary" />
               Transaction ID: {transaction.id}
             </div>

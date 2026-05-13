@@ -9,8 +9,8 @@ export default function Transactions() {
   const transaction = useTransactions();
 
   return (
-    <main className="mx-auto w-full bg-white">
-      <section className="overflow-hidden rounded-2xl border border-stroke2 bg-white shadow-sm">
+    <main className="mx-auto w-full bg-white dark:bg-[#1C1B1B] pb-5">
+      <section className="overflow-hidden rounded-2xl border border-stroke2 bg-white dark:bg-[#1C1B1B] shadow-sm">
         <TransactionsFilters
           query={transaction.query}
           onQueryChange={(value) => {

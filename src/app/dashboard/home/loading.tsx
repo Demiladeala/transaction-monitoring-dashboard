@@ -2,20 +2,22 @@ import { MOCK_METRICS } from "@/src/lib/mock-data";
 
 export default function HomeLoading() {
   return (
-    <main className="mx-auto w-full space-y-6 bg-white">
+    <main className="mx-auto w-full space-y-6 bg-white dark:bg-[#1C1B1B]">
       <section className="rounded-xl p-4 sm:p-6 lg:border border-stroke2">
-        <h3 className="mb-3 text-lg font-semibold text-gray-900">Metrics</h3>
+        <h3 className="mb-3 text-lg font-semibold text-gray-900 dark:text-[#C9C6C5]">
+          Metrics
+        </h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {MOCK_METRICS.map((metric) => (
             <div
               key={metric.title}
-              className="rounded-lg border border-stroke p-4 sm:p-6 lg:rounded-none lg:border-0 lg:border-r lg:border-gray-200 lg:p-0"
+              className="rounded-lg border border-stroke p-4 sm:p-6 lg:rounded-none lg:border-0 lg:border-r lg:border-gray-200 lg:border-r-stroke2 lg:p-0"
             >
-              <h3 className="mb-2 text-sm font-medium text-gray-600">
+              <h3 className="mb-2 text-sm font-medium text-gray-600 dark:text-[#939090]">
                 {metric.title}
               </h3>
               <div
-                className="h-8 w-24 animate-pulse rounded-md bg-slate-300/80 sm:h-9"
+                className="h-8 w-24 animate-pulse rounded-md bg-slate-300/80 dark:bg-[#3C3B3B] sm:h-9"
                 aria-hidden="true"
               />
             </div>
@@ -27,14 +29,14 @@ export default function HomeLoading() {
         {["Transactions", "Flagged transactions"].map((title) => (
           <section
             key={title}
-            className="rounded-lg border border-gray-200 bg-white p-4 sm:p-6"
+            className="rounded-lg border border-gray-200 bg-white p-4 sm:p-6 dark:border-[#3C3B3B] dark:bg-[#1C1B1B]"
           >
-            <h3 className="mb-4 text-lg font-semibold text-gray-900">
+            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-[#C9C6C5]">
               {title}
             </h3>
-            <div className="h-75 w-full rounded-lg border border-stroke2 bg-panelSurface/20 p-4">
+            <div className="h-75 w-full rounded-lg border border-stroke2 bg-panelSurface/20 p-4 dark:bg-[#262526]">
               <div
-                className="h-full w-full animate-pulse rounded-md bg-slate-300/80"
+                className="h-full w-full animate-pulse rounded-md bg-slate-300/80 dark:bg-[#3C3B3B]"
                 aria-hidden="true"
               />
             </div>

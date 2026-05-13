@@ -10,6 +10,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { useTheme } from "next-themes";
 
 import {
   CHART_DATA_FLAGGED,
@@ -40,11 +41,21 @@ const TransactionsTooltip = makeTooltip(TRANSACTIONS_COLOR);
 const FlaggedTooltip = makeTooltip(FLAGGED_COLOR);
 
 export default function Dashboard() {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
+  const tickColor = isDark ? "#939090" : "#64748b";
+  const transactionsFill = isDark ? "#1A2028" : "#E7EEF6";
+  const flaggedFill = isDark ? "#321E1D" : "#FFECEA";
+  const borderStroke = isDark ? "#F4F0EF80" : "#E2E8F0";
+
   return (
     <div className="space-y-4">
       {/* Metrics Section */}
       <div className="w-full lg:border border-stroke2 lg:rounded-[10px] lg:p-3.5">
-        <h3 className="text-lg font-semibold text-gray-900 mb-3">Metrics</h3>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-[#C9C6C5] mb-3">
+          Metrics
+        </h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {MOCK_METRICS.map((metric, index) => (
             <MetricsCard
@@ -66,16 +77,16 @@ export default function Dashboard() {
               data={CHART_DATA_TRANSACTIONS}
               margin={{ top: 4, right: 0, left: 0, bottom: 0 }}
             >
-              <CartesianGrid stroke="#e2e8f0" strokeDasharray="" />
+              <CartesianGrid stroke={borderStroke} strokeDasharray="" />
               <XAxis
                 dataKey="month"
-                tick={{ fontSize: 12, fill: "#64748b" }}
+                tick={{ fontSize: 12, fill: tickColor }}
                 axisLine={false}
                 tickLine={false}
                 padding={{ left: 0, right: 0 }}
               />
               <YAxis
-                tick={{ fontSize: 12, fill: "#64748b" }}
+                tick={{ fontSize: 12, fill: tickColor }}
                 axisLine={false}
                 tickLine={false}
                 width={32}
@@ -94,7 +105,7 @@ export default function Dashboard() {
                 dataKey="value"
                 stroke={TRANSACTIONS_COLOR}
                 strokeWidth={2}
-                fill="#E7EEF6"
+                fill={transactionsFill}
                 fillOpacity={1}
                 dot={false}
                 activeDot={{ r: 4, fill: TRANSACTIONS_COLOR }}
@@ -110,16 +121,16 @@ export default function Dashboard() {
               data={CHART_DATA_FLAGGED}
               margin={{ top: 4, right: 0, left: 0, bottom: 0 }}
             >
-              <CartesianGrid stroke="#e2e8f0" strokeDasharray="" />
+              <CartesianGrid stroke={borderStroke} strokeDasharray="" />
               <XAxis
                 dataKey="month"
-                tick={{ fontSize: 12, fill: "#64748b" }}
+                tick={{ fontSize: 12, fill: tickColor }}
                 axisLine={false}
                 tickLine={false}
                 padding={{ left: 0, right: 0 }}
               />
               <YAxis
-                tick={{ fontSize: 12, fill: "#64748b" }}
+                tick={{ fontSize: 12, fill: tickColor }}
                 axisLine={false}
                 tickLine={false}
                 width={32}
@@ -138,7 +149,7 @@ export default function Dashboard() {
                 dataKey="value"
                 stroke={FLAGGED_COLOR}
                 strokeWidth={2}
-                fill="#FFECEA"
+                fill={flaggedFill}
                 fillOpacity={1}
                 dot={false}
                 activeDot={{ r: 4, fill: FLAGGED_COLOR }}

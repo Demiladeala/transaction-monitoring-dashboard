@@ -39,7 +39,7 @@ function PaginationArrow({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "flex h-9 w-9 items-center justify-center rounded-lg border border-stroke2 bg-white text-slate-700 transition-colors hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40",
+        "flex h-9 w-9 items-center justify-center rounded-lg border border-stroke2 bg-white dark:bg-[#262526] text-slate-700 dark:text-[#C9C6C5] transition-colors hover:bg-slate-50 dark:hover:bg-[#2C2B2B] disabled:cursor-not-allowed disabled:opacity-40",
       )}
     >
       <Icon className="h-4 w-4" />
@@ -64,8 +64,8 @@ export function TransactionsTable({
   return (
     <>
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-stroke2">
-          <thead className="bg-panelSurface text-left text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
+        <table className="min-w-full divide-y divide-stroke">
+          <thead className="bg-panelSurface text-left text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-[#C9C6C5]">
             <tr>
               <th className="px-5 py-4">Customer Name</th>
               <th className="px-5 py-4">Amount</th>
@@ -88,19 +88,20 @@ export function TransactionsTable({
                   }
                 }}
                 className={cn(
-                  "group cursor-pointer border-b border-stroke2 text-sm transition-colors hover:bg-slate-50",
-                  selectedId === transaction.id && "bg-slate-50",
+                  "group cursor-pointer border-b border-stroke2 text-sm transition-colors hover:bg-slate-50 dark:hover:bg-[#2C2B2B]",
+                  selectedId === transaction.id &&
+                    "bg-slate-50 dark:bg-[#2C2B2B]",
                 )}
               >
                 <td className="px-5 py-4">
-                  <div className="font-medium text-slate-900">
+                  <div className="font-medium text-slate-900 dark:text-[#C9C6C5]">
                     {transaction.customerName}
                   </div>
-                  <div className="text-xs text-slate-500">
+                  <div className="text-xs text-slate-500 dark:text-[#C9C6C5]">
                     {transaction.merchant}
                   </div>
                 </td>
-                <td className="px-5 py-4 font-semibold text-slate-900">
+                <td className="px-5 py-4 font-semibold text-slate-900 dark:text-[#C9C6C5]">
                   {currencyFormatter.format(transaction.amount)}
                 </td>
                 <td className="px-5 py-4">
@@ -123,9 +124,11 @@ export function TransactionsTable({
                     {transaction.status}
                   </span>
                 </td>
-                <td className="px-5 py-4 text-slate-600">{transaction.date}</td>
+                <td className="px-5 py-4 text-slate-600 dark:text-[#C9C6C5]">
+                  {transaction.date}
+                </td>
                 <td className="px-5 py-4 text-right">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition-colors group-hover:bg-slate-100 group-hover:text-slate-600">
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition-colors group-hover:bg-slate-100 dark:group-hover:bg-[#2C2B2B] group-hover:text-slate-600 dark:group-hover:text-[#C9C6C5]">
                     <ChevronRight className="h-4 w-4" />
                   </span>
                 </td>
@@ -136,7 +139,7 @@ export function TransactionsTable({
               <tr>
                 <td
                   colSpan={6}
-                  className="px-5 py-16 text-center text-sm text-slate-500"
+                  className="px-5 py-16 text-center text-sm text-slate-500 dark:text-[#C9C6C5]"
                 >
                   No transactions match the current search and filters.
                 </td>
@@ -146,18 +149,18 @@ export function TransactionsTable({
         </table>
       </div>
 
-      <div className="flex flex-col gap-4 border-t border-stroke2 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500">
-          <span className="font-medium text-slate-700">
+      <div className="flex flex-col gap-4 border-t border-stroke p-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500 dark:text-[#C9C6C5]">
+          <span className="font-medium text-slate-700 dark:text-[#C9C6C5]">
             {pageStart}-{pageEnd} of {totalCount}
           </span>
-          <div className="h-2 w-2 rounded-full bg-slate-300" />
+          <div className="h-2 w-2 rounded-full bg-slate-300 dark:bg-gray-500" />
           <div className="flex items-center gap-2">
             <span>Results per page</span>
             <select
               value={pageSize}
               onChange={(event) => onPageSizeChange(Number(event.target.value))}
-              className="h-9 rounded-lg border border-stroke2 bg-white px-3 text-sm text-slate-700 outline-none"
+              className="h-9 rounded-lg border border-stroke2 bg-white dark:bg-[#262526] px-3 text-sm text-slate-700 dark:text-[#C9C6C5] outline-none"
               aria-label="Results per page"
             >
               {[9, 12, 18].map((option) => (
@@ -176,8 +179,12 @@ export function TransactionsTable({
             onClick={() => onPageChange(Math.max(1, currentPage - 1))}
           />
           <div className="flex items-baseline gap-1 text-sm">
-            <span className="font-semibold text-slate-900">{currentPage}</span>
-            <span className="text-slate-400">/ {totalPages}</span>
+            <span className="font-semibold text-slate-900 dark:text-[#C9C6C5]">
+              {currentPage}
+            </span>
+            <span className="text-slate-400 dark:text-gray-400">
+              / {totalPages}
+            </span>
           </div>
           <PaginationArrow
             direction="right"

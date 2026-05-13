@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Tell Tailwind v4 to use .dark class (applied by next-themes) instead of the OS media query */
+@custom-variant dark (&:is(.dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -21,6 +24,15 @@
 }
 
 .dark {
+  --background: #0f141c;
+  --foreground: #e5edf8;
+  --primaryBlack: #e5edf8;
+  --secondary-text: #C9C6C5;
+  --accent: #003880;
+  --neutral50: #8f9bb0;
+  --neutral500: #aeb9ca;
+  --stroke: #484646;
+  --stroke2: #3C3B3B;
   --panelSurface: #262526;
 }
 
@@ -89,6 +101,10 @@
 }
 
 .border-stroke {
+  border-color: var(--stroke);
+}
+
+.divide-stroke {
   border-color: var(--stroke);
 }
 

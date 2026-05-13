@@ -42,15 +42,15 @@ function LogoutDialog({
         className="absolute inset-0 bg-black/40 backdrop-blur-sm"
         onClick={onCancel}
       />
-      <div className="relative z-10 w-full max-w-sm rounded-2xl bg-white p-6 shadow-2xl">
+      <div className="relative z-10 w-full max-w-sm rounded-2xl bg-white p-6 shadow-2xl dark:bg-[#1C1B1B]">
         <div className="flex flex-col items-center text-center">
-          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-red-50">
-            <AlertTriangle className="h-6 w-6 text-red-600" />
+          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-red-50 dark:bg-[#321E1D]">
+            <AlertTriangle className="h-6 w-6 text-red-600 dark:text-red-400" />
           </div>
-          <h2 className="mb-1 text-lg font-semibold text-slate-900">
+          <h2 className="mb-1 text-lg font-semibold text-slate-900 dark:text-[#C9C6C5]">
             Log out?
           </h2>
-          <p className="mb-6 text-sm text-slate-500">
+          <p className="mb-6 text-sm text-slate-500 dark:text-[#939090]">
             Are you sure you want to log out? You&apos;ll need to sign in again
             to access your dashboard.
           </p>
@@ -58,7 +58,7 @@ function LogoutDialog({
             <button
               type="button"
               onClick={onCancel}
-              className="flex-1 rounded-lg border border-slate-200 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
+              className="flex-1 rounded-lg border border-slate-200 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 dark:border-[#3C3B3B] dark:text-[#C9C6C5] dark:hover:bg-[#2C2B2B]"
             >
               Cancel
             </button>
@@ -145,7 +145,7 @@ function SidebarInner({
         <button
           type="button"
           className={cn(
-            "group relative flex h-10 w-full items-center rounded-lg border border-stroke bg-white dark:bg-white px-3 text-slate-500 placeholder:text-secondary transition-all duration-300",
+            "group relative flex h-10 w-full items-center rounded-lg border border-stroke bg-white dark:bg-[#1C1B1B] px-3 text-slate-500 dark:text-[#939090] transition-all duration-300",
             isCollapsed && !isMobile
               ? "justify-center px-0"
               : "justify-start gap-2",
@@ -155,7 +155,7 @@ function SidebarInner({
           <Search className="h-4 w-4 text-[#939090]" />
           <span
             className={cn(
-              "overflow-hidden whitespace-nowrap text-sm transition-all duration-200",
+              "overflow-hidden whitespace-nowrap text-sm dark:text-secondaryColor transition-all duration-200",
               isCollapsed && !isMobile
                 ? "max-w-0 opacity-0"
                 : "max-w-30 opacity-100",
@@ -166,20 +166,20 @@ function SidebarInner({
 
           {(!isCollapsed || isMobile) && (
             <span className="ml-auto flex items-center gap-1 text-xs text-[#939090]">
-              <kbd className="h-6 rounded flex items-center justify-center border border-[#F4F0EF] bg-white px-1.5 py-0.5 font-medium tracking-[-0.1rem]">
+              <kbd className="h-6 rounded flex items-center justify-center border border-[#F4F0EF] bg-white dark:bg-[#1C1B1B] dark:border-[#3C3B3B] px-1.5 py-0.5 font-medium tracking-[-0.1rem]">
                 Ctrl
               </kbd>
-              <kbd className="h-6 rounded flex items-center justify-center border border-[#F4F0EF] bg-white px-1.5 py-0.5 font-medium">
+              <kbd className="h-6 rounded flex items-center justify-center border border-[#F4F0EF] bg-white dark:bg-[#1C1B1B] dark:border-[#3C3B3B] px-1.5 py-0.5 font-medium">
                 ⌘
               </kbd>
-              <kbd className="h-6 rounded flex items-center justify-center border border-[#F4F0EF] bg-white px-1.5 py-0.5 font-medium">
+              <kbd className="h-6 rounded flex items-center justify-center border border-[#F4F0EF] bg-white dark:bg-[#1C1B1B] dark:border-[#3C3B3B] px-1.5 py-0.5 font-medium">
                 K
               </kbd>
             </span>
           )}
 
           {isCollapsed && !isMobile && (
-            <span className="pointer-events-none absolute left-full ml-2 whitespace-nowrap rounded-lg border border-slate-200 bg-white px-2 py-1 text-sm font-medium text-slate-800 opacity-0 shadow-sm transition-opacity group-hover:opacity-100">
+            <span className="pointer-events-none absolute left-full ml-2 z-50 whitespace-nowrap rounded-lg border border-slate-200 bg-white px-2 py-1 text-sm font-medium text-slate-800 opacity-0 shadow-sm transition-opacity group-hover:opacity-100">
               Search
             </span>
           )}
@@ -203,11 +203,11 @@ function SidebarInner({
                   ? "justify-center p-2.5"
                   : "justify-start gap-2.5 p-2.5",
                 isActive
-                  ? "border border-[#D8E2FF] bg-white text-primary shadow-[0px_1px_2px_0px_#1018280D]"
-                  : "text-slate-700 hover:bg-slate-100",
+                  ? "border border-[#D8E2FF] bg-white dark:border-[#003880] dark:bg-[#1C1B1B] text-primary dark:font-semibold dark:text-[#0D4CA3] shadow-[0px_1px_2px_0px_#1018280D]"
+                  : "text-slate-700 hover:bg-slate-100 dark:text-[#939090] dark:hover:bg-[#2C2B2B]",
               )}
             >
-              <Icon className="h-4 w-4 shrink-0" />
+              <Icon className="h-4 w-4 shrink-0 " />
               <span
                 className={cn(
                   "overflow-hidden whitespace-nowrap transition-all duration-200",
@@ -230,7 +230,7 @@ function SidebarInner({
       </nav>
 
       {/* Logout */}
-      <div className="mt-auto border-t border-slate-200 pt-3">
+      <div className="mt-auto border-t border-stroke pt-3">
         <button
           type="button"
           onClick={() => setShowLogoutDialog(true)}
@@ -282,7 +282,7 @@ export function Sidebar({ mobileOpen = false, onMobileClose }: SidebarProps) {
       {/* ── Desktop sidebar ── */}
       <aside
         className={cn(
-          "hidden h-screen shrink-0 flex-col overflow-x-hidden bg-panelSurface p-4 transition-[width] duration-300 ease-in-out lg:flex",
+          "hidden h-screen shrink-0 flex-col overflow-visible bg-panelSurface p-4 transition-[width] duration-300 ease-in-out lg:flex",
           isCollapsed ? "w-20" : "w-64",
         )}
       >

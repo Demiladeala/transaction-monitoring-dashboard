@@ -41,7 +41,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           mobileOpen={mobileOpen}
           onMobileClose={() => setMobileOpen(false)}
         />
-        <main className="min-w-0 h-screen overflow-y-auto flex-1 border-l border-stroke bg-white">
+        <main className="min-w-0 h-screen overflow-y-auto flex-1 border-l border-stroke bg-white dark:bg-[#1C1B1B]">
           <DashboardHeader
             variant={headerVariant}
             onMenuClick={() => setMobileOpen(true)}

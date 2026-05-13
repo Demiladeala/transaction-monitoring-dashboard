@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Toaster } from "sonner";
+import { ThemeProvider } from "@/src/components/theme-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`h-full antialiased`}>
+    <html lang="en" suppressHydrationWarning className="h-full antialiased">
       <head>
         <link
           rel="preconnect"
@@ -24,18 +25,26 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.cdnfonts.com" />
         <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/br-firma" />
       </head>
-      <body>
-        {children}
-        <Toaster
-          richColors
-          toastOptions={{
-            classNames: {
-              // error: "bg-[#FF363614] text-[#FF3636]",
-              // warning: "bg-[#F59E0B14] text-[#F59E0B]",
-              success: "!bg-white !border !border-stroke !text-black",
-            },
-          }}
-        />
+      <body className="h-full bg-[var(--background)] text-[var(--foreground)]">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Toaster
+            richColors
+            theme="system"
+            toastOptions={{
+              classNames: {
+                // error: "bg-[#FF363614] text-[#FF3636]",
+                // warning: "bg-[#F59E0B14] text-[#F59E0B]",
+                success: "!border !border-[#e5e2e1] !bg-white !text-black",
+              },
+            }}
+          />
+        </ThemeProvider>
       </body>
     </html>
   );

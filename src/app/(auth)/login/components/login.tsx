@@ -52,7 +52,7 @@ export default function Login() {
   return (
     <div className="min-h-screen flex">
       {/* Left Section - Branding (Hidden on small screens) */}
-      <div className="hidden lg:flex lg:w-1/2 bg-primary-gradient text-white flex-col p-8 lg:p-14">
+      <div className="hidden lg:flex lg:w-1/2 bg-primary text-white flex-col p-8 lg:p-14">
         {/* Background lines */}
         <div className="absolute">
           <Image
@@ -68,11 +68,11 @@ export default function Login() {
         </div>
 
         <div className="max-w-99">
-          <h1 className="text-4xl font-bold mb-6 text-accent">LOGO</h1>
+          <h1 className="text-4xl font-bold mb-6 text-[#D8E2FF]">LOGO</h1>
           <h2 className="text-3xl lg:text-4xl font-semibold leading-tight text-white mb-6">
             All-in-One Access <br /> Control
           </h2>
-          <p className="text-accent text-lg leading-relaxed">
+          <p className="text-[#D8E2FF] text-lg leading-relaxed">
             Monitor and manage all your transactions in one place with our
             comprehensive dashboard.
           </p>
@@ -87,15 +87,15 @@ export default function Login() {
       </div>
 
       {/* Right Section - Login Form */}
-      <div className="w-full lg:w-1/2 bg-white flex flex-col lg:justify-center px-4 sm:px-6 md:px-8 lg:px-12 py-8 lg:py-0">
+      <div className="w-full lg:w-1/2 bg-white dark:bg-[#1C1B1B] flex flex-col lg:justify-center px-4 sm:px-6 md:px-8 lg:px-12 py-8 lg:py-0">
         <div className="max-w-md w-full mx-auto">
           {/* Logo for mobile */}
           <h1 className="text-3xl font-bold text-primary lg:hidden">LOGO</h1>
 
-          <h3 className="text-2xl sm:text-3xl font-bold lg:font-semibold text-black max-lg:mt-5 max-lg:mb-2">
+          <h3 className="text-2xl sm:text-3xl font-bold lg:font-semibold text-black dark:text-[#C9C6C5] max-lg:mt-5 max-lg:mb-2">
             Welcome Back!
           </h3>
-          <p className="text-gray-600 text-sm lg:hidden">
+          <p className="text-gray-600 dark:text-[#939090] text-sm lg:hidden">
             Sign in to access your dashboard
           </p>
 
@@ -142,7 +142,7 @@ export default function Login() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-neutral50"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-neutral50 dark:text-[#939090] dark:hover:text-[#C9C6C5]"
                 >
                   {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
                 </button>
@@ -175,7 +175,9 @@ export default function Login() {
 
           {/* Sign Up Link */}
           <div className="mt-6 text-center text-sm">
-            <span className="text-gray-600">Don&apos;t have an account? </span>{" "}
+            <span className="text-gray-600 dark:text-[#939090]">
+              Don&apos;t have an account?{" "}
+            </span>
             <Link
               href="/"
               className="text-primary hover:text-primary-500 font-semibold"
@@ -185,19 +187,21 @@ export default function Login() {
           </div>
 
           {/* Footer */}
-          <p className="text-center text-gray-500 text-xs mt-8 lg:mt-16">
+          <p className="text-center text-gray-500 dark:text-[#939090] text-xs mt-8 lg:mt-16">
             © 2025 LOGO. All rights reserved.
           </p>
 
           {/* Demo Credentials Info */}
-          <div className="mt-6 p-3 bg-accent border border-[#e5e2e1] rounded-lg">
-            <p className="text-primary-500 text-xs font-medium">
+          <div className="mt-6 rounded-lg border border-stroke2 bg-panelSurface p-3">
+            <p className="text-primary-500 text-xs font-medium dark:text-[#C9C6C5]">
               Demo Credentials:
             </p>
-            <p className="text-primary text-xs">
+            <p className="text-primary text-xs dark:text-[#939090]">
               test@example.com / password123
             </p>
-            <p className="text-primary text-xs">admin@example.com / admin123</p>
+            <p className="text-primary text-xs dark:text-[#939090]">
+              admin@example.com / admin123
+            </p>
           </div>
         </div>
       </div>

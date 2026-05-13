@@ -1,29 +1,43 @@
 "use client";
+
 import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export function ThemeToggle() {
-  const isDark = false;
+  const { resolvedTheme, setTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
   return (
     <button
       type="button"
-      className="group relative grid h-10 w-10 place-items-center rounded-full border border-transparent transition-all duration-200 hover:bg-slate-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+      role="switch"
+      aria-checked={isDark}
+      aria-label="Toggle color theme"
+      suppressHydrationWarning
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="relative flex h-7 w-16 shrink-0 cursor-pointer items-center rounded-full border border-slate-200 bg-slate-100 px-0.5 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 dark:border-slate-700 dark:bg-slate-800"
     >
+      {/* track icons */}
       <Sun
+        className="absolute left-1.5 h-3.5 w-3.5 text-amber-400 transition-opacity duration-200 dark:opacity-30"
         aria-hidden="true"
-        className={`absolute h-4.5 w-4.5 transition-all duration-300 ${
-          isDark
-            ? "scale-50 -rotate-45 opacity-0 text-amber-400"
-            : "scale-100 rotate-0 opacity-100 text-amber-400"
-        }`}
       />
       <Moon
+        className="absolute right-1.5 h-3.5 w-3.5 text-slate-400 transition-opacity duration-200 opacity-30 dark:text-primary dark:opacity-100"
         aria-hidden="true"
-        className={`absolute h-4.5 w-4.5 transition-all duration-300 ${
-          isDark
-            ? "scale-100 rotate-0 opacity-100 text-primary"
-            : "scale-50 rotate-45 opacity-0 text-primary"
-        }`}
       />
+
+      {/* sliding thumb */}
+      <span className="relative z-10 flex h-5.5 w-5.5 translate-x-0 items-center justify-center rounded-full bg-white shadow-sm ring-0 transition-transform duration-300 dark:translate-x-9 dark:bg-slate-950">
+        <Sun
+          className="h-3 w-3 text-amber-400 transition-opacity duration-200 dark:opacity-0"
+          aria-hidden="true"
+        />
+        <Moon
+          className="absolute h-3 w-3 text-primary opacity-0 transition-opacity duration-200 dark:opacity-100"
+          aria-hidden="true"
+        />
+      </span>
     </button>
   );
 }

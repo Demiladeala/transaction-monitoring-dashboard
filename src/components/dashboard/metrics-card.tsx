@@ -16,15 +16,17 @@ export function MetricsCard({
   return (
     <div
       className={cn(
-        "bg-white rounded-lg border border-stroke p-4 sm:p-6 lg:rounded-none lg:border-0 lg:border-r lg:border-gray-200 lg:p-0",
+        " rounded-lg border border-stroke p-4 sm:p-6 lg:rounded-none lg:border-0 lg:border-r lg:border-gray-200 lg:p-0",
         isLast && "lg:border-r-0",
       )}
     >
-      <h3 className="text-gray-600 text-sm font-medium mb-2">{title}</h3>
+      <h3 className="text-gray-600 dark:text-[#C9C6C5] text-sm font-medium mb-2">
+        {title}
+      </h3>
       <p
         className={cn(
           "text-2xl sm:text-3xl font-bold",
-          highlight ? "text-red-500" : "text-gray-900",
+          highlight ? "text-red-500" : "text-gray-900 dark:text-[#C9C6C5]",
         )}
       >
         {value}
