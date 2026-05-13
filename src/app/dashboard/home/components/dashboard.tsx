@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import type { TooltipContentProps } from "recharts";
 import {
   Area,
@@ -13,8 +11,6 @@ import {
   YAxis,
 } from "recharts";
 
-import { useAuthStore } from "@/src/lib/stores/auth";
-import { useLocalStorage } from "@/src/hooks/use-local-storage";
 import {
   CHART_DATA_FLAGGED,
   CHART_DATA_TRANSACTIONS,
@@ -44,20 +40,6 @@ const TransactionsTooltip = makeTooltip(TRANSACTIONS_COLOR);
 const FlaggedTooltip = makeTooltip(FLAGGED_COLOR);
 
 export default function Dashboard() {
-  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
-  const [isLogin] = useLocalStorage<boolean>("isLogin", false);
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!isLoggedIn && !isLogin) {
-      router.push("/");
-    }
-  }, [isLoggedIn, isLogin, router]);
-
-  if (!isLoggedIn && !isLogin) {
-    return null;
-  }
-
   return (
     <div className="space-y-4">
       {/* Metrics Section */}

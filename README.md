@@ -194,45 +194,67 @@ duplicated state
 stale data issues
 unnecessary global complexity
 
-4. API & Data Layer Design
+4. Mock Data Strategy
 
-The project uses Next.js Route Handlers to simulate a backend API layer.
+The project uses mock data to simulate backend responses, allowing frontend development to proceed independently of API availability.
 
-Example structure:
+Mock data is centralized in dedicated files:
 
-app/api/
-├── transactions/
-├── dashboard/
-└── login/
+src/lib/transactions-data.ts
+src/lib/mock-data.ts
 
 This approach was chosen to:
 
-simulate realistic frontend/backend interaction
-create clean API boundaries
-support React Query naturally
-simplify future backend integration
+decouple frontend development from backend
+provide realistic sample data
+enable rapid iteration
+facilitate testing without external dependencies
+simplify future API integration
 
 The architecture follows this data flow:
 
-Component → Hook → Service → API Route
-API Layer
+Component → Hook → Mock Data / Future API
+Mock Data Structure
 
-Responsibilities:
+Mock data includes:
 
-HTTP request handling only
-returning raw responses
-no UI logic
-no React imports
-Service Layer
+Transaction records with full details (customer, amount, risk level, status, date)
+Transaction history and timeline information
+Risk indicators and severity levels
+Dashboard metrics and chart data
+Formatters and style mappings
 
-Responsibilities:
+Example:
 
-transforming API responses
-formatting UI-ready data
-aggregating related requests
-isolating business/data logic
+const generatedTransactions = Array.from({ length: 28 }, (\_, index) => ({
+id: `TXN-${10420 + index}`,
+customerName: string,
+amount: number,
+riskLevel: "Low" | "Medium" | "High",
+status: "Completed" | "Pending" | "Failed",
+...
+}));
 
-This separation improves maintainability and prevents business logic from leaking into UI components.
+Data Transformation
+
+Hooks consume mock data and apply:
+
+filtering logic
+pagination
+search capabilities
+sorting
+status transformations
+
+This separation ensures mock data remains static while application logic handles dynamic state management.
+
+Future API Integration
+
+When a backend becomes available, mock data can be replaced with API calls while maintaining:
+
+identical data shapes
+same hook interfaces
+no component changes
+backward compatibility
 
 5. Form Handling & Validation
 

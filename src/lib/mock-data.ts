@@ -13,7 +13,7 @@ export const MOCK_METRICS: Metric[] = [
   { title: "Total transactions", value: "12,430" },
   { title: "Flagged transactions", value: "184", highlight: true },
   { title: "Total customers", value: "2,981" },
-  { title: "Risk score summary", value: "68/100" },
+  { title: "Risk score summary", value: "67.89%" },
 ];
 
 export const CHART_DATA_TRANSACTIONS: ChartPoint[] = [
