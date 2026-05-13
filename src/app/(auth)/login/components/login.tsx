@@ -52,7 +52,7 @@ export default function Login() {
   return (
     <div className="min-h-screen flex">
       {/* Left Section - Branding (Hidden on small screens) */}
-      <div className="hidden lg:flex lg:w-1/2 bg-primary text-white flex-col p-8 lg:p-14">
+      <div className="relative hidden lg:flex lg:w-1/2 bg-primary overflow-hidden text-white flex-col p-8 lg:p-14">
         {/* Background lines */}
         <div className="absolute">
           <Image
