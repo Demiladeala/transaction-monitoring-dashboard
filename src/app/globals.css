@@ -14,6 +14,7 @@
   --primary-500: #0e4ba3;
   --stroke: #e5e2e1;
   --error: #db3a33;
+  --panelSurface: #FDF8F8;
 }
 
 @theme inline {
@@ -32,6 +33,7 @@
   --primary-500: #7fb1ff;
   --stroke: #38404a;
   --error: #ff7f79;
+  --panelSurface: #262526;
 }
 
 .bg-primary {
@@ -44,6 +46,10 @@
 
 .bg-accent {
   background-color: var(--accent);
+}
+
+.bg-panelSurface {
+  background-color: var(--panelSurface);
 }
 
 .bg-primary-gradient {

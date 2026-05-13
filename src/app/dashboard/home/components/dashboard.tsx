@@ -13,6 +13,7 @@ import {
 } from "recharts";
 
 import { useAuthStore } from "@/src/lib/stores/auth";
+import { useLocalStorage } from "@/src/hooks/use-local-storage";
 import {
   CHART_DATA_FLAGGED,
   CHART_DATA_TRANSACTIONS,
@@ -21,19 +22,20 @@ import {
 import { ChartCard } from "@/src/components/dashboard/chart-card";
 import { MetricsCard } from "@/src/components/dashboard/metrics-card";
 
-export default function Dashboard() {
+export function Dashboard() {
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+  const [isLogin] = useLocalStorage<boolean>("isLogin", false);
   const router = useRouter();
   const transactionsGradientId = useId();
   const flaggedGradientId = useId();
 
   useEffect(() => {
-    if (!isLoggedIn) {
+    if (!isLoggedIn && !isLogin) {
       router.push("/");
     }
-  }, [isLoggedIn, router]);
+  }, [isLoggedIn, isLogin, router]);
 
-  if (!isLoggedIn) {
+  if (!isLoggedIn && !isLogin) {
     return null;
   }
 

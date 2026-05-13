@@ -20,7 +20,7 @@ const loginSchema = z.object({
 
 type LoginFormData = z.infer<typeof loginSchema>;
 
-export default function Login() {
+export function Login() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const emailId = useId();
