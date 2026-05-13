@@ -111,7 +111,7 @@ export function DashboardHeader({
             <Menu className="h-5 w-5" />
           </button>
           <Icon className="h-5 w-5" strokeWidth={1} />
-          <h1 className="text-base font-normal text-[#262526]">{title}</h1>
+          <h1 className="text-base font-normal text-[#262526] ">{title}</h1>
         </div>
 
         <div className="flex items-center gap-3">

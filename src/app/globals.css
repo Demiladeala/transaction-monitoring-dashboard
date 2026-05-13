@@ -5,6 +5,7 @@
   --foreground: #171717;
   --primary-bg: #004396;
   --primaryBlack: #262526;
+  --secondary-text:#939090;
   --primary-color: #004396;
   --primary-foreground: #ffffff;
   --accent: #d3e8ff;
@@ -19,23 +20,8 @@
   --panelSurface: #FDF8F8;
 }
 
-@theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-primary: var(--primary-color);
-}
-
 .dark {
-  /* Change these dark-mode values later if you want a different palette. */
-  /* --primary-bg: #4f89ff;
-  --primary-color: #4f89ff;
-  --accent: #3a4f69;
-  --white: #f3f5f7;
-  --neutral500: #a6adb5;
-  --primary-500: #7fb1ff;
-  --stroke: #38404a;
-  --error: #ff7f79;
-  --panelSurface: #262526; */
+  --panelSurface: #262526;
 }
 
 .bg-primary {
@@ -71,11 +57,14 @@
   color: var(--primaryBlack);
 }
 
+.text-secondaryColor {
+  color: var(--secondary-text);
+}
 .text-accent {
   color: var(--accent);
 }
 
-.text-white-token {
+.text-white {
   color: var(--white);
 }
 
@@ -120,8 +109,4 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "BR Firma", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-}
-
-.dark body {
-  background: #112;
 }

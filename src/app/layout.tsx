@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Toaster } from "sonner";
-import { ThemeProvider } from "@/src/features/theme/theme-provider";
-import { ThemeScript } from "@/src/features/theme/theme-script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,7 +13,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Early theme sync now handled by <ThemeScript />
   return (
     <html lang="en" className={`h-full antialiased`}>
       <head>
@@ -26,10 +23,9 @@ export default function RootLayout({
         />
         <link rel="dns-prefetch" href="//fonts.cdnfonts.com" />
         <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/br-firma" />
-        <ThemeScript />
       </head>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        {children}
         <Toaster
           richColors
           toastOptions={{

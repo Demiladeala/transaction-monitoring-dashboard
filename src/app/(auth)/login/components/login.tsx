@@ -52,7 +52,7 @@ export default function Login() {
   return (
     <div className="min-h-screen flex">
       {/* Left Section - Branding (Hidden on small screens) */}
-      <div className="hidden lg:flex lg:w-1/2 bg-primary-gradient text-white-token flex-col p-8 lg:p-14">
+      <div className="hidden lg:flex lg:w-1/2 bg-primary-gradient text-white flex-col p-8 lg:p-14">
         {/* Background lines */}
         <div className="absolute">
           <Image
@@ -69,7 +69,7 @@ export default function Login() {
 
         <div className="max-w-99">
           <h1 className="text-4xl font-bold mb-6 text-accent">LOGO</h1>
-          <h2 className="text-3xl lg:text-4xl font-semibold leading-tight mb-6">
+          <h2 className="text-3xl lg:text-4xl font-semibold leading-tight text-white mb-6">
             All-in-One Access <br /> Control
           </h2>
           <p className="text-accent text-lg leading-relaxed">
@@ -167,7 +167,7 @@ export default function Login() {
               type="submit"
               isLoading={isSubmitting}
               loadingText="Logging in..."
-              className="mt-8 lg:mt-10 w-full bg-primary hover:bg-primary-500 text-white-token font-semibold py-2 rounded-lg transition-colors"
+              className="mt-8 lg:mt-10 w-full bg-primary hover:bg-primary-500 text-white font-semibold py-2 rounded-lg transition-colors"
             >
               Login
             </Button>
@@ -190,7 +190,7 @@ export default function Login() {
           </p>
 
           {/* Demo Credentials Info */}
-          <div className="mt-6 p-3 bg-accent border border-stroke rounded-lg">
+          <div className="mt-6 p-3 bg-accent border border-[#e5e2e1] rounded-lg">
             <p className="text-primary-500 text-xs font-medium">
               Demo Credentials:
             </p>

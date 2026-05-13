@@ -36,12 +36,12 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
   return (
     <div>
-      <div className="mx-auto flex w-full bg-white ">
+      <div className="mx-auto flex w-full bg-white">
         <Sidebar
           mobileOpen={mobileOpen}
           onMobileClose={() => setMobileOpen(false)}
         />
-        <main className="min-w-0 h-screen overflow-y-auto flex-1 border border-slate-200 bg-white">
+        <main className="min-w-0 h-screen overflow-y-auto flex-1 border-l border-stroke bg-white">
           <DashboardHeader
             variant={headerVariant}
             onMenuClick={() => setMobileOpen(true)}

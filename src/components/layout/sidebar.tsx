@@ -145,7 +145,7 @@ function SidebarInner({
         <button
           type="button"
           className={cn(
-            "group relative flex h-10 w-full items-center rounded-lg border border-stroke bg-white px-3 text-slate-500 transition-all duration-300",
+            "group relative flex h-10 w-full items-center rounded-lg border border-stroke bg-white dark:bg-white px-3 text-slate-500 placeholder:text-secondary transition-all duration-300",
             isCollapsed && !isMobile
               ? "justify-center px-0"
               : "justify-start gap-2",

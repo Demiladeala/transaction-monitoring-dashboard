@@ -1,19 +1,11 @@
 "use client";
-import { useThemeStore } from "@/src/features/theme/theme-store";
 import { Moon, Sun } from "lucide-react";
 
 export function ThemeToggle() {
-  const theme = useThemeStore((s) => s.theme);
-  const toggleTheme = useThemeStore((s) => s.toggleTheme);
-  const nextThemeLabel =
-    theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
-  const isDark = theme === "dark";
-
+  const isDark = false;
   return (
     <button
       type="button"
-      aria-label={nextThemeLabel}
-      onClick={toggleTheme}
       className="group relative grid h-10 w-10 place-items-center rounded-full border border-transparent transition-all duration-200 hover:bg-slate-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
     >
       <Sun
