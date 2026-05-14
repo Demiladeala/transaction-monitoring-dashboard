@@ -1,8 +1,7 @@
 # Transaction Monitoring Dashboard
 
 ## Objective
-
-Build a responsive Transaction Monitoring Dashboard interface using React/Next.js and TypeScript.
+A responsive Transaction Monitoring Dashboard interface using React/Next.js and TypeScript.
 
 ## Features
 
